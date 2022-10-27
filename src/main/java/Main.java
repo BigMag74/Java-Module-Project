@@ -4,8 +4,6 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        // ваш код начнется здесь
-        // вы не должны ограничиваться только классом Main и можете создавать свои классы по необходимости
         System.out.println("Здраствуйте, на скольких человек необходимо разделить счет?");
         int peronCount;
         Scanner scanner = new Scanner(System.in);
@@ -30,10 +28,16 @@ public class Main {
             Item item = new Item();
 
             System.out.println("Ведите название товара");
-            item.name = scanner.next();
+            answer = scanner.next();
+            if(answer.equalsIgnoreCase("Завершить"))
+                break;
+            item.name = answer;
             System.out.println("Ведите стоимость товара  формате \"рубли.копейки\"");
             try{
-                item.price = Double.parseDouble(scanner.next());
+                answer = scanner.next();
+                if(answer.equalsIgnoreCase("Завершить"))
+                    break;
+                item.price = Double.parseDouble(answer);
             }
             catch (NumberFormatException ex){
                 System.out.println("Ошибка при добавлении товара, попробуйте снова");
